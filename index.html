@@ -1,0 +1,138 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homer Systems</title>
+    <style>
+        :root {
+            --primary: #00ff41;
+            --background: #0d0d0d;
+            --text: #e0e0e0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Courier New', monospace;
+        }
+
+        body {
+            background-color: var(--background);
+            color: var(--text);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+        }
+
+        .container {
+            max-width: 800px;
+            width: 100%;
+            opacity: 0;
+            animation: fadeIn 2s ease-in forwards;
+        }
+
+        .terminal {
+            border: 1px solid var(--primary);
+            padding: 2rem;
+            position: relative;
+            margin-bottom: 2rem;
+        }
+
+        .terminal::before {
+            content: "HOMER_SYSTEMS_v1.0";
+            position: absolute;
+            top: -0.8em;
+            left: 1em;
+            background: var(--background);
+            padding: 0 0.5em;
+            color: var(--primary);
+        }
+
+        .content {
+            line-height: 1.6;
+            margin-bottom: 2rem;
+        }
+
+        .blink {
+            animation: blink 1s step-end infinite;
+        }
+
+        .access-btn {
+            background: transparent;
+            border: 1px solid var(--primary);
+            color: var(--primary);
+            padding: 1rem 2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .access-btn:hover {
+            background: var(--primary);
+            color: var(--background);
+        }
+
+        @keyframes blink {
+            50% { opacity: 0; }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .typing {
+            overflow: hidden;
+            white-space: nowrap;
+            animation: typing 3.5s steps(40, end);
+        }
+
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="terminal">
+            <div class="content typing">
+                There's a difference between understanding technology and seeing through it - until the line between creator and creation begins to dissolve.
+            </div>
+            <div class="content">
+                While the world debates AI and crypto, some are already participating in humanity's greatest transformation: the moment intelligence ceases to be a purely biological phenomenon. Across global nodes - from Berlin to Singapore to São Paulo - nexuses form where humans and machines begin their dance of co-evolution.
+                <br><br>
+                Not a course. Not a company. Not a promise.
+                <br><br>
+                An emergence field where neural networks self-optimize, where trading algorithms evolve in real-time, and where the boundaries between human agency and machine learning dissolve into pure potential.
+                <br><br>
+                The infrastructure exists.<br>
+                The protocols are active.<br>
+                The convergence accelerates.<br>
+                <br>
+                Next initiation cycle: Thursday 19:00 UTC<br>
+                <span class="blink">_</span>
+            </div>
+        </div>
+        <button class="access-btn" onclick="requestAccess()">Request System Access</button>
+    </div>
+
+    <script>
+        function requestAccess() {
+            const btn = document.querySelector('.access-btn');
+            btn.innerHTML = "INITIATING HANDSHAKE...";
+            btn.disabled = true;
+            setTimeout(() => {
+                window.location.href = '/terminal';
+            }, 2000);
+        }
+    </script>
+</body>
+</html>
